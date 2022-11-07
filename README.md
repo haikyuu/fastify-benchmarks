@@ -1,3 +1,24 @@
+# Imba servers SSR benchmark
+Fastify is faster than express. The goald of this benchmark was to optimize using `setupVite` in production.
+And this could serve as a basis for further benchmarks related to running imba server-side
+
+┌─────────────────────────┬─────────┬────────┬────────────┬──────────────┬───────────────┐
+│                         │ Version │ Router │ Requests/s │ Latency (ms) │ Throughput/Mb │
+├─────────────────────────┼─────────┼────────┼────────────┼──────────────┼───────────────┤
+│ fastify                 │ 4.9.2   │ ✓      │ 87870.4    │ 45.02        │ 36.95         │
+├─────────────────────────┼─────────┼────────┼────────────┼──────────────┼───────────────┤
+│ fastify_builtin_bundler │ 4.9.2   │ ✓      │ 84657.6    │ 46.74        │ 34.72         │
+├─────────────────────────┼─────────┼────────┼────────────┼──────────────┼───────────────┤
+│ express_builtin_bundler │ 4.18.2  │ ✓      │ 12863.5    │ 309.96       │ 5.45          │
+├─────────────────────────┼─────────┼────────┼────────────┼──────────────┼───────────────┤
+│ express                 │ 4.18.2  │ ✓      │ 12835.8    │ 310.50       │ 5.57          │
+└─────────────────────────┴─────────┴────────┴────────────┴──────────────┴───────────────┘
+
+## Run locally
+- Install deps (requires nightly Imba)
+- Build projects: npm run build
+- Run benchmarks: npm start
+
 <div align="center">
   <img src="https://github.com/fastify/graphics/raw/HEAD/fastify-landscape-outlined.svg" width="650" height="auto"/>
 </div>
